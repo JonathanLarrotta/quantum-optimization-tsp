@@ -1,49 +1,68 @@
-# 🚀 Computación Cuántica para Optimización de Rutas (TSP/Logística)  
-*"Acelerando soluciones a problemas NP-duros con qubits físicos"*  
+# 🚀 Optimización Cuántica vs. Clásica en TSP/Logística  
+*"Comparando Hopfield, grafos y métodos cuánticos (QAOA/Annealing) para problemas de rutas"*  
 
 ---
 
-## 📌 **Resumen del Proyecto**  
-Exploración de cómo los **algoritmos cuánticos** (QAOA, Quantum Annealing) y la **implementación física de qubits** (superconductores, iones atrapados) pueden optimizar problemas complejos como el **TSP** (Problema del Viajante) y **logística de última milla**, superando limitaciones clásicas.  
+## 🔍 **Problema: TSP y Logística**  
+**Definición clásica**:  
+- Encontrar la ruta más corta que visita **N ciudades** una vez y regresa al origen (complejidad O(n!)).  
+
+**Aplicación logística**:  
+- Minimizar costos y tiempos en distribución (ej: última milla).  
 
 ---
 
-## 🔍 **Contenido Técnico**  
+## ⚖️ **Comparativa: Métodos Clásicos vs. Cuánticos**  
 
-### 1. **Problema Clásico vs. Solución Cuántica**  
-| **Aspecto**               | **Enfoque Clásico**              | **Enfoque Cuántico**               |  
-|---------------------------|-----------------------------------|-------------------------------------|  
-| Complejidad (TSP 10 nodos)| O(n!)                            | O(√n) con QAOA                     |  
-| Variables consideradas    | Distancia                        | Clima, tráfico, prioridad (en tiempo real) |  
-| Hardware requerido        | Servidores de alto rendimiento   | Qubits físicos (ej: D-Wave, IBMQ)  |  
+### 1. **Enfoque Clásico**  
+#### a) Redes de Hopfield (como en tu repositorio)  
+```python
+# Ejemplo simplificado (Tour no válido vs. válido)
+import numpy as np
 
-### 2. **Qubits Físicos: Tipos y Aplicaciones**  
-- **Superconductores** (D-Wave): Ideales para Quantum Annealing en problemas discretos.  
-- **Trampas de iones** (IonQ): Alta coherencia para algoritmos gate-based (QAOA).  
-- **Fotónicos** (Xanadu): Escalables pero con desafíos en corrección de errores.  
+# Matriz de distancias (ejemplo para 4 ciudades)
+distancias = np.array([
+    [0, 2, 9, 10],
+    [2, 0, 6, 4],
+    [9, 6, 0, 8],
+    [10, 4, 8, 0]
+])
 
-> 📊 **Dato clave**: *"Un sistema de 50 qubits superconductores resolvió un TSP de 15 nodos en 2 minutos vs. 5 horas de un algoritmo genético (D-Wave, 2023)."*  
+# Función de energía para Hopfield
+def energia(estado, distancias):
+    return np.sum(estado * distancias @ estado.T)
 
-### 3. **Resultados Experimentales**  
-- **Logística**: Reducción del 30% en costos de rutas urbanas usando QAOA (IBM, 2024).  
-- **TSP**: Soluciones óptimas en grafos de hasta 20 nodos con error <5% (Rigetti).  
+# Solución con grafos (ejemplo usando NetworkX)
+import networkx as nx
 
----
+G = nx.Graph()
+G.add_weighted_edges_from([(0,1,2), (0,2,9), (1,2,6), (1,3,4), (2,3,8)])
+ruta_optima = nx.approximation.traveling_salesman_problem(G, cycle=True)
 
-## 🛠️ **Implementación Práctica**  
-```python  
-# Ejemplo simplificado: QAOA para TSP en Qiskit  
-from qiskit_optimization import QuadraticProgram  
-from qiskit.algorithms import QAOA  
+# Ejemplo para TSP en D-Wave (usando dwave-ocean-sdk)
+from dwave.system import DWaveSampler
 
-# Definir problema  
-problem = QuadraticProgram()  
-problem.binary_var('ruta_A')  
-problem.minimize(linear={'ruta_A': 2})  # Minimizar tiempo  
+# Definir QUBO para TSP (matriz de acoplamientos)
+qubo = {(0,1): -2, (0,2): -9, (1,2): -6, ...}  # Pesos negativos para minimización
 
-# Ejecutar QAOA  
-qaoa = QAOA(reps=2, quantum_instance=backend_simulator)  
-result = qaoa.compute_minimum_eigenvalue(problem)  
-print("Mejor ruta:", result)  # quantum-optimization-tsp
-# quantum-optimization-tsp
-# quantum-optimization-tsp
+# Ejecutar en computador cuántico
+response = DWaveSampler().sample_qubo(qubo, num_reads=1000)
+print("Mejor ruta:", response.first.sample)
+
+# Implementación QAOA para TSP
+from qiskit.algorithms import QAOA
+from qiskit_optimization import QuadraticProgram
+
+qp = QuadraticProgram()
+qp.binary_var('x01')  # Ruta ciudad 0 -> 1
+qp.minimize(linear={'x01': 2, 'x02': 9, ...})  # Minimizar distancia total
+
+qaoa = QAOA(reps=3, quantum_instance=backend_simulator)
+result = qaoa.compute_minimum_eigenvalue(qp.to_ising()[0])
+
+# Usar QAOA con datos reales (matriz de distancias desde API)
+distancias = obtener_distancias_api(lugares=["Cra 80 #20", "Cl 10 #45", ...])
+qp = QuadraticProgram()
+# ... (definir problema)
+resultado = QAOA().solve(qp)
+visualizar_ruta(resultado)
