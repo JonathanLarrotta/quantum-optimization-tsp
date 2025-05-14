@@ -17,6 +17,10 @@
 ### 1. **Enfoque Clásico**  
 #### a) Redes de Hopfield (como en tu repositorio)  
 ```python
+
+pip install qiskit dwave-ocean-sdk networkx
+git clone https://github.com/tu-usuario/quantum-tsp-logistics.git
+
 # Ejemplo simplificado (Tour no válido vs. válido)
 import numpy as np
 
