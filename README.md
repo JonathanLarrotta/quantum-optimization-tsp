@@ -1,5 +1,4 @@
 ## 🚀 Ventajas Cuánticas en Optimización: TSP y Logística
-"Cómo los qubits físicos revolucionan la solución de problemas NP-duros"
 
 ## 🔍 Problema Central
 Problema del Viajante (TSP):
@@ -80,20 +79,24 @@ Optimización de rutas urbanas. Fuente: MDPI
 Ventaja clave: La computación cuántica acelera exponencialmente la solución de problemas de optimización combinatoria.
 
 Ventajas Cuánticas en Optimización (TSP/Logística)
-1. Paralelismo Cuántico y Exploración del Espacio de Soluciones
-Qué lo permite: Superposición cuántica (múltiples rutas evaluadas en paralelo).
+1. Paralelismo Cuántico y Exploración del Espacio de Soluciones.
+   
+Qué lo permite: Superposición cuántica (múltiples rutas evaluadas en paralelo).  
+
 Ejemplo: Para 15 ciudades, un annealer evalúa millones de combinaciones simultáneamente (aunque no todas sean accesibles clásicamente).
 
-2. Velocidad en Problemas Específicos
-Complejidad reducida:
-Quantum Annealing: O(√n) vs O(2ⁿ) clásico en casos ideales.
-QAOA: Potencial O(log n) para ciertas instancias.
-Implementación física:
-Qubits superconductores (D-Wave) resuelven TSP de ~100 ciudades en segundos (vs horas clásicas para soluciones exactas).
+2. Velocidad en Problemas Específicos.
 
-3. Eficiencia Energética
-Hardware cuántico:
-Consume menos energía que supercomputadoras clásicas para problemas combinatorios grandes (ej. optimización de rutas en flotas logísticas).
+Complejidad reducida: Quantum Annealing: O(√n) vs O(2ⁿ) clásico en casos ideales.  
+
+QAOA: Potencial O(log n) para ciertas instancias.  
+
+Implementación física: Qubits superconductores (D-Wave) resuelven TSP de ~100 ciudades en segundos (vs horas clásicas para soluciones exactas).
+
+3. Eficiencia Energética.
+   
+Hardware cuántico: Consume menos energía que supercomputadoras clásicas para problemas combinatorios grandes (ej. optimización de rutas en flotas logísticas).  
+
 Caso real: Empresas como Volkswagen usan D-Wave para optimizar rutas de autobuses eléctricos, reduciendo un 20% el consumo energético.
 
 ## 📚 **Referencias**
