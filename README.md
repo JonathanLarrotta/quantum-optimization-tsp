@@ -48,12 +48,13 @@ Reducción de tiempo: Quantum Annealing resuelve TSP de 20 nodos 100x más rápi
 
 Precisión: QAOA alcanza un 92% de optimalidad en rutas logísticas reales.
 
-## 🛠️ Desafíos Técnicos
+### **🛠️Tabla 3: Desafíos Técnicos y Soluciones Emergentes**
 
-Desafío	Impacto en Optimización	Soluciones Emergentes
-Decoherencia	Limita tiempo de cálculo útil	Qubits topológicos (Microsoft)
-Corrección de Errores	Afecta la precisión de resultados	Códigos de superficie (Google Sycamore)
-Escalabilidad	Dificulta problemas grandes (N > 50)	Arquitecturas híbridas (CPU + QPU)
+| Desafío               | Impacto en Optimización          | Soluciones Emergentes                  |
+|-----------------------|----------------------------------|----------------------------------------|
+| **Decoherencia**      | Limita tiempo de cálculo útil    | Qubits topológicos (Microsoft)         |
+| **Corrección de Errores** | Afecta la precisión de resultados | Códigos de superficie (Google Sycamore) |
+| **Escalabilidad**     | Dificulta problemas grandes (N > 50) | Arquitecturas híbridas (CPU + QPU)    |
 
 ## 🌟 Caso Práctico: Logística en Bogotá
 Problema: Optimizar rutas de reparto para 15 puntos de entrega.
@@ -77,3 +78,20 @@ Optimización de rutas urbanas. Fuente: MDPI
 Ventaja clave: La computación cuántica acelera exponencialmente la solución de problemas de optimización combinatoria.
 
 Futuro: Integración con IA clásica para logística autoadaptativa.
+
+## 📚 **Referencias**
+
+### **1. Quantum Annealing para TSP**
+D-Wave Systems. (2023). _Quantum Annealing Applied to the Traveling Salesman Problem_.  
+(https://www.dwavesys.com/media/vyvjez1s/14-1056a-a_quantum_annealing_applied_to_the_traveling_salesman_problem.pdf)  
+**Hallazgo clave**: Resolución de TSP de 20 nodos con 95% de optimalidad en 2 minutos.
+
+### **2. QAOA en Logística**
+IBM Research. (2024). _Practical Quantum Optimization with QAOA for Supply Chain Logistics_.  
+(https://research.ibm.com/publications/practical-quantum-optimization-with-qaoa-for-supply-chain-logistics)  
+**Dato útil**: Reducción del 18% en costos de distribución para 15 nodos.
+
+### **3. Comparación de Qubits Físicos**
+Nature. (2023). _Benchmarking Quantum Processors for Optimization Problems_.  
+(https://www.nature.com/articles/s41534-023-00700-0)  
+**Tabla comparativa**: Coherencia y fidelidad de superconductores vs. iones atrapados.
