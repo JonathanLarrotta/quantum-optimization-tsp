@@ -3,7 +3,9 @@
 
 ## 🔍 Problema Central
 Problema del Viajante (TSP):
+
 ![TSP Visual](GLPK_solution_of_a_travelling_salesman_problem.svg.png)
+
 Ejemplo de ruta óptima entre ciudades. Fuente: Towards Data Science
 
 Aplicación en Logística:
